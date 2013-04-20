@@ -1,0 +1,17 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="All unit tests" type="ScalaTestRunConfiguration" factoryName="ScalaTest">
+    <module name="sselenium-driver" />
+    <setting name="path" value="sselenium.driver.SSeleniumTest" />
+    <setting name="package" value="sselenium.driver" />
+    <setting name="vmparams" value="" />
+    <setting name="params" value="" />
+    <setting name="workingDirectory" value="file://$PROJECT_DIR$" />
+    <setting name="searchForTest" value="Across module dependencies" />
+    <setting name="testName" value="" />
+    <setting name="testKind" value="All in package" />
+    <setting name="showProgressMessages" value="true" />
+    <RunnerSettings RunnerId="Run" />
+    <ConfigurationWrapper RunnerId="Run" />
+    <method />
+  </configuration>
+</component>
