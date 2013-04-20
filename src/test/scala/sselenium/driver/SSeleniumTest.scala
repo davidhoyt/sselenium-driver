@@ -31,6 +31,7 @@ import org.scalatest.matchers.ShouldMatchers
 class SSeleniumTest extends FunSuite with ShouldMatchers with SeveredStackTraces {
 
   test("simple") {
+    val drive = new Drive
     assert(true)
   }
 
