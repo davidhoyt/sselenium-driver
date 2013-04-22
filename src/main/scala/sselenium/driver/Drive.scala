@@ -19,7 +19,12 @@
 
 package sselenium.driver
 
+import _root_.java.io.File
+import org.seleniumhq.jetty7.server._
 import com.dongxiguo.fastring.Fastring.Implicits._
+import org.seleniumhq.jetty7.server.handler.ContextHandler
+import org.openqa.jetty.jetty.servlet.WebApplicationContext
+import org.openqa.selenium.remote.server.DriverServlet
 
 /**
  */
@@ -27,4 +32,23 @@ class Drive {
   private implicit val (logger, formatter, appender) = ZeroLoggerFactory.newLogger
 
   logger.info(fast"Logging statement")
+
+  val s = new Server(0)
+  val app = new WebApplicationContext()
+  app.setContextPath("/")
+  app.setWAR(new File(".").getAbsolutePath)
+  app.addServlet("/wd/*", classOf[DriverServlet].getName)
+  //s.setHandler(app)
+
+  val context = new ContextHandler("/")
+
+  s.setHandler(context)
+  s.addConnector(new LocalConnector().)
+  s.start()
+  val port = s.getConnectors()(0).getLocalPort
+  logger.info(fast"PORT: $port")
+  Thread.sleep(20 * 1000)
+  s.stop()
+  while(!s.isStopped)
+    Thread.sleep(100)
 }
